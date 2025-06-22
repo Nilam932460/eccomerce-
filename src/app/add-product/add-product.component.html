@@ -1,0 +1,100 @@
+
+<div class="container mt-5">
+  <div class="row">
+    <p class="d-inline-flex gap-1">
+      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Add Product
+      </a>
+    </p>
+
+<!-- template  -->
+    <!-- <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+   
+          <div class="mb-3">
+            <label for="nameInput" class="form-label">Name</label>
+            <input
+              #name="ngModel"
+              minlength="4"
+              required
+              name="name"
+              [(ngModel)]="newProduct.name2"
+              type="text"
+              class="form-control"
+              id="nameInput"
+              [ngClass]="{'border-danger': (name.errors && name.touched) || (name.errors && form.submitted)}"
+            />
+            <div *ngIf="(name.errors && name.touched) || (name.errors && form.submitted)">
+              <p *ngIf="name.errors['required']" class="text-danger">Name is compulsory</p>
+              <p *ngIf="name.errors['minlength']" class="text-danger">Name must contain at least 4 letters</p>
+            </div>
+          </div>
+
+          
+          <div class="mb-3">
+            <label for="descInput" class="form-label">Description</label>
+            <input
+              #description="ngModel"
+              type="text"
+              name="description"
+              [(ngModel)]="newProduct.description"
+              class="form-control"
+              id="descInput"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="priceInput" class="form-label">Price</label>
+            <input
+              #price="ngModel"
+              required
+              type="number"
+              name="price"
+              [(ngModel)]="newProduct.price"
+              class="form-control"
+              id="priceInput"
+              [ngClass]="{'border-danger': (price.errors && price.touched) || (price.errors && form.submitted)}"
+            />
+            <div *ngIf="(price.errors && price.touched) || (price.errors && form.submitted)">
+              <p *ngIf="price.errors['required']" class="text-danger">Price is compulsory</p>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div> -->
+
+
+    <!--  -->
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <form [formGroup] = "productForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <input formControlName="name"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div *ngIf="(name?.errors && productForm.get('name')?.touched) || (productForm.get('name')?.errors && submitted)">
+         <p *ngIf="name?.errors?.['required']" class="text-danger">Name is compulsory</p>
+         <p *ngIf="name?.errors?.['minlength']" class="text-danger">Name must contain at least 4 letters</p>
+         <p *ngIf="name?.errors?.['forbiddenWords']" class="text-danger">admin name is not allowed</p>
+       </div>
+
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Description</label>
+          <input type="text" formControlName="name"  class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Price</label>
+          <input type="number" formControlName="price"  class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>  
+
+    
+  </div>
+</div>

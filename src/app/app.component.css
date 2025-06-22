@@ -1,0 +1,33 @@
+.no-products-message {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #0d0d0c; /* Red color for attention */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: bounce 1.5s infinite;
+    margin-top: 20px;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+
+  /* ngclass style  */
+  .price-high {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: red; /* Price higher than 30 will be red */
+  }
+  
+  .price-normal {
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: black; /* Price lower than or equal to 30 will be black */
+  }
+  

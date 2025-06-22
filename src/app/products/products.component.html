@@ -1,0 +1,49 @@
+
+<app-add-product ></app-add-product>
+<!-- *ngIf structure directive -->
+<div *ngIf="myProducts.length === 0" class="text-center mt-5">
+    <h1 class="no-products-message">Sorry, no products available</h1>
+</div>
+
+<!-- with for loop --> 
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4 d-flex justify-content-center" *ngFor="let product of myProducts">
+        <div class="card mb-4 shadow-sm" style="width: 18rem;">
+          <!-- {{ product | json }} -->
+          <img (click)="onclickimg(product.id)" [src]="product.image" class="card-img-top pointer-cursor" alt="{{product.name2}}">
+          <div class="card-body text-center">
+            <h5 class="card-title">Name: {{ product.name2 }}</h5>
+            <!-- <h5 class="card-title">Name: {{ product.name2 | slice:2:5}}</h5> -->
+            <!-- <h5 class="card-title">Name: {{ product.name2 | lowercase }}</h5>
+            <h5 class="card-title">Name: {{ product.name2 | uppercase}}</h5>
+            <h5 class="card-title">Name: {{ product.name2 | titlecase }}</h5> -->
+            <p class="card-text">Description: {{ product.description }}</p>
+            <p class="card-text"><strong>Price: {{ product.price | currency : "INR" }} </strong> </p>
+
+            <!-- attribute directive -->
+             <!-- ngstyle -->
+             <!-- <p class="card-text">
+                <strong>Price: 
+                  <span [ngStyle]="{ color: product.price > 27 ? 'red' : 'black' }">
+                    ${{ product.price }}
+                  </span>
+                </strong>
+              </p> -->
+               
+              <!-- ngclass -->
+              <!-- <p class="card-text" [ngClass]="{
+                'price-high': product.price > 25,
+                'price-normal': product.price <= 30
+              }" [ngStyle]="{ 'color': product.price > 25 ? 'red' : 'black' }">
+                <strong>Price: ${{ product.price }}</strong>
+              </p> -->
+
+            <a href="#" class="btn btn-primary">Buy Now</a>
+            <button class="btn btn-danger ms-3"(click)="onClickdelete(product.id)" >delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
